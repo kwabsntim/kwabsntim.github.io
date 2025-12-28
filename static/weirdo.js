@@ -384,8 +384,33 @@ function initCardAnimations() {
 
 function switchToMake() {
     const makeTab = document.querySelector('.nav-tab:nth-child(2)');
-    switchTab('replies', makeTab);
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    const currentContent = document.querySelector('.tab-content.active');
+    const makeContent = document.getElementById('replies-content');
+    
+    // Add slide-out animation to current content
+    currentContent.style.transform = 'translateX(-100%)';
+    currentContent.style.transition = 'transform 0.3s ease-in-out';
+    
+    setTimeout(() => {
+        switchTab('replies', makeTab);
+        
+        // Add slide-in animation to make content
+        makeContent.style.transform = 'translateX(100%)';
+        makeContent.style.transition = 'transform 0.3s ease-in-out';
+        
+        setTimeout(() => {
+            makeContent.style.transform = 'translateX(0)';
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }, 50);
+        
+        // Reset transform after animation
+        setTimeout(() => {
+            currentContent.style.transform = '';
+            currentContent.style.transition = '';
+            makeContent.style.transform = '';
+            makeContent.style.transition = '';
+        }, 350);
+    }, 300);
 }
 
 // Load profile when page loads

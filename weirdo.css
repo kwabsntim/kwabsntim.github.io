@@ -1259,27 +1259,15 @@ body {
     text-decoration: underline;
 }
 
-.projects-btn {
-    background: #1d9bf0;
-    border: none;
-    color: white;
-    padding: 8px 24px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 15px;
+.projects-link {
+    color: var(--text-primary);
+    text-decoration: underline;
+    font-size: 14px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     cursor: pointer;
-    transition: background-color 0.2s;
-    text-decoration: none;
-    display: inline-block;
+    transition: color 0.2s;
 }
 
-.projects-btn:hover {
-    background: #1a8cd8;
-}
-
-@media (max-width: 480px) {
-    .projects-btn {
-        padding: 6px 18px;
-        font-size: 14px;
-    }
+.projects-link:hover {
+    color: #1d9bf0;
 }
