@@ -487,6 +487,24 @@ body {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
+@media (max-width: 768px) {
+    .year-summary {
+        text-align: justify;
+    }
+}
+
+.article-link {
+    color: #1d9bf0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.article-link:hover {
+    color: #1a8cd8;
+    text-decoration: underline;
+}
+
 .memory-card {
     display: flex;
     align-items: center;
