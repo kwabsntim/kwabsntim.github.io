@@ -107,13 +107,13 @@
                     <div class="intro-text">
                         Hey! I bet you didn't use the terminal above. Maybe you are just not curious. But,I guess you can try it out, lol!<br><br>
                         
-                        My name, my name... let's just say I'm Prince Peter and the rest. People do say I have a long name, but I don't really mind. I can describe my life with just one emoji and that is 🧐(curiosity emoji). I can be curious sometimes.Despite people saying "be curious," my curiosity has led me to some unknown places of which I won't talk about. The main reason you are here is to know what I do, right?<br><br>
+                        I'm Prince Peter (and yes, there's more to the name). People say it's long, but hey, I own it! My life? One emoji: 🧐 - pure curiosity. Sometimes that curiosity takes me places I probably shouldn't mention here. But you're here to know what I actually do, right?<br><br>
                         
-                        Let's take a dive into it...<br><br>
+                        Let's dive in...<br><br>
                         
-                        Depending on my mood, I can be a programmer and sometimes an electrical and electronics engineer... funny, init?<br><br>
+                        I switch between being a programmer and an electrical engineer - depends on the day and my mood, really.<br><br>
                         
-                        Me learning programming has made me learn technologies such as Python (the snake), HTML, CSS, and something called Bootstrap, Django, Flask, and recently Golang (the gopher).Lest I forget,sometimes I feel like hacking into systems but thats for another episode.STAY TUNED!! <br><br>
+                        My tech journey includes Python, HTML, CSS, Bootstrap, Django, Flask, and recently Golang. Oh, and sometimes I dabble in... let's call it "system exploration" 😉 But that's a story for another time. STAY TUNED!! <br><br>
                     </div>
                     <hr class="section-separator">
                     <div class="activities-list">
@@ -290,10 +290,11 @@
                 
                 <!-- Image Popup -->
                 <div id="image-popup" class="image-popup" onclick="closeImagePopup()">
+                    <button class="close-btn" onclick="event.stopPropagation(); closeImagePopup();">×</button>
                     <div class="image-loader" id="image-loader">
                         <div class="spinner"></div>
                     </div>
-                    <img id="popup-image" src="" alt="Memory" style="display: none;">
+                    <img id="popup-image" src="" alt="Memory" style="display: none;" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
                 </div>
                 
                 <!-- Dynamic frames will be loaded here -->

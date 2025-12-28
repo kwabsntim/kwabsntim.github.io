@@ -475,6 +475,11 @@ function openImagePopup(imageSrc) {
         loader.style.display = 'none';
         popupImage.src = cacheBustSrc;
         popupImage.style.display = 'block';
+        
+        // Prevent image download
+        popupImage.oncontextmenu = () => false;
+        popupImage.ondragstart = () => false;
+        popupImage.onselectstart = () => false;
     };
     img.src = cacheBustSrc;
 }
