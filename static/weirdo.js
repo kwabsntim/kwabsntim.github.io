@@ -30,6 +30,7 @@ function toggleTheme() {
     const bannerImg = document.querySelector('.header-banner img');
     const profileAvatar = document.querySelector('.profile-avatar');
     const profileImg = document.querySelector('.profile-avatar img');
+    const collapsibleBtns = document.querySelectorAll('.collapsible-btn');
     
     bannerImg.style.opacity = '0';
     profileAvatar.classList.remove('flip');
@@ -44,6 +45,12 @@ function toggleTheme() {
             themeText.textContent = 'Light';
             bannerImg.src = 'static/twlight.jpg';
             profileImg.src = 'static/spacechristmas.png';
+            // Dark mode - show light colored buttons
+            collapsibleBtns.forEach(btn => {
+                btn.style.color = '#fff';
+                btn.style.backgroundColor = '#111';
+                btn.style.borderColor = '#2f3336';
+            });
         } else {
             body.setAttribute('data-theme', 'light');
             // Switching to light mode - show moon icon and "Dark" text
@@ -51,6 +58,12 @@ function toggleTheme() {
             themeText.textContent = 'Dark';
             bannerImg.src = 'static/sunrise.png';
             profileImg.src = 'static/lightchristmas.png';
+            // Light mode - show dark colored buttons
+            collapsibleBtns.forEach(btn => {
+                btn.style.color = '#0f1419';
+                btn.style.backgroundColor = '#f7f9fa';
+                btn.style.borderColor = '#ccd6dd';
+            });
         }
         bannerImg.style.opacity = '1';
     }, 150);
@@ -423,6 +436,14 @@ function toggleCollapsible(button) {
     if (isActive) {
         button.classList.remove('active');
         content.classList.remove('active');
+        
+        // Smooth scroll to top when collapsible closes
+        setTimeout(() => {
+            window.scrollTo({ 
+                top: 0, 
+                behavior: 'smooth' 
+            });
+        }, 300);
     } else {
         button.classList.add('active');
         content.classList.add('active');
