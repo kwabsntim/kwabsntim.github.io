@@ -382,6 +382,12 @@ function initCardAnimations() {
 
 
 
+function switchToMake() {
+    const makeTab = document.querySelector('.nav-tab:nth-child(2)');
+    switchTab('replies', makeTab);
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
 // Load profile when page loads
 document.addEventListener('DOMContentLoaded', function() {
     initCardAnimations();
