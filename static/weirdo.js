@@ -39,16 +39,16 @@ function toggleTheme() {
     setTimeout(() => {
         if (body.getAttribute('data-theme') === 'light') {
             body.removeAttribute('data-theme');
-            // Moon icon (dark mode)
+            // Moon icon (dark mode) - text shows "Dark"
             themeIcon.setAttribute('d', 'M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z');
-            themeText.textContent = 'Light';
+            themeText.textContent = 'Dark';
             bannerImg.src = 'static/twlight.jpg';
             profileImg.src = 'static/spacechristmas.png';
         } else {
             body.setAttribute('data-theme', 'light');
-            // Sun icon (light mode)
+            // Sun icon (light mode) - text shows "Light"
             themeIcon.setAttribute('d', 'M12,18c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S15.3,18,12,18zM12,8c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4c2.2,0,4-1.8,4-4C16,9.8,14.2,8,12,8z M12,4c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,3.6,12.6,4,12,4z M12,20c-0.6,0-1-0.4-1-1v-2c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,19.6,12.6,20,12,20z M5.6,6.6c-0.3,0-0.6-0.1-0.8-0.3L3.4,4.9c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C6,6.5,5.8,6.6,5.6,6.6z M18.4,19.4c-0.3,0-0.6-0.1-0.8-0.3l-1.4-1.4c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C19,19.3,18.7,19.4,18.4,19.4z M20,13h-2c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S20.6,13,20,13z M6,13H4c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S6.6,13,6,13z M18.4,6.6c-0.3,0-0.6-0.1-0.8-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C19,6.5,18.7,6.6,18.4,6.6z M5.6,19.4c-0.3,0-0.6-0.1-0.8-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C6.2,19.3,5.9,19.4,5.6,19.4z');
-            themeText.textContent = 'Dark';
+            themeText.textContent = 'Light';
             bannerImg.src = 'static/sunrise.png';
             profileImg.src = 'static/lightchristmas.png';
         }
