@@ -437,13 +437,11 @@ function toggleCollapsible(button) {
         button.classList.remove('active');
         content.classList.remove('active');
         
-        // Smooth scroll to top when collapsible closes
-        setTimeout(() => {
-            window.scrollTo({ 
-                top: 0, 
-                behavior: 'smooth' 
-            });
-        }, 300);
+        // Scroll to very top when collapsible closes
+        window.scrollTo({ 
+            top: 0, 
+            behavior: 'smooth' 
+        });
     } else {
         button.classList.add('active');
         content.classList.add('active');
