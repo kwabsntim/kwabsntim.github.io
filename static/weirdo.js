@@ -157,6 +157,79 @@ function switchTab(tabName, element) {
     focusHidden();
   })();
 
+// API functions for projects and blogs
+async function fetchProjects() {
+    try {
+        // Replace with your actual API URL when ready
+        const response = await fetch('YOUR_PROJECTS_API_URL');
+        const data = await response.json();
+        displayProjects(data.projects);
+    } catch (error) {
+        console.error('Error fetching projects:', error);
+    }
+}
+
+async function fetchBlogs() {
+    try {
+        // Replace with your actual API URL when ready
+        const response = await fetch('YOUR_BLOGS_API_URL');
+        const data = await response.json();
+        displayBlogs(data.blogs);
+    } catch (error) {
+        console.error('Error fetching blogs:', error);
+    }
+}
+
+function displayProjects(projects) {
+    const container = document.querySelector('#replies-content .tweets-section');
+    // Keep sample card and add dynamic projects
+    projects.forEach(project => {
+        const projectCard = createProjectCard(project);
+        container.appendChild(projectCard);
+    });
+}
+
+function displayBlogs(blogs) {
+    const container = document.querySelector('#highlights-content .tweets-section');
+    // Keep sample card and add dynamic blogs
+    blogs.forEach(blog => {
+        const blogCard = createBlogCard(blog);
+        container.appendChild(blogCard);
+    });
+}
+
+function createProjectCard(project) {
+    const div = document.createElement('div');
+    div.className = 'project-card';
+    div.onclick = () => openProject(project.url);
+    div.innerHTML = `
+        <div class="project-title">${project.title}</div>
+        <div class="project-description">${project.description}</div>
+        <div class="project-link">View Project →</div>
+    `;
+    return div;
+}
+
+function createBlogCard(blog) {
+    const div = document.createElement('div');
+    div.className = 'blog-card';
+    div.onclick = () => openBlog(blog.url);
+    div.innerHTML = `
+        <div class="blog-date">${blog.date}</div>
+        <div class="blog-title">${blog.title}</div>
+        <div class="blog-preview">${blog.preview}</div>
+    `;
+    return div;
+}
+
+function openProject(url) {
+    window.open(url, '_blank');
+}
+
+function openBlog(url) {
+    window.open(url, '_blank');
+}
+
 // API functions
 async function fetchBits() {
     try {
@@ -511,6 +584,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCardAnimations();
     fetchBits();
     fetchFrames();
+    fetchProjects();
     fetchBlogs();
     fetchProfile();
     
