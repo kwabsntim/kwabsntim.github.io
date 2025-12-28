@@ -261,6 +261,36 @@
 
         <div id="media-content" class="tab-content">
             <div class="tweets-section">
+                <div class="welcome-message">
+                    This are memories from every year
+                </div>
+                
+                <div class="year-collapsible">
+                    <button class="collapsible-btn" onclick="toggleCollapsible(this)">
+                        <span>2025 year memories</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="year-summary">
+                            Started new projects, learned new technologies, traveled to amazing places, 
+                            made new connections, and created unforgettable memories throughout the year.
+                        </div>
+                        <div class="memory-card" onclick="openImagePopup('static/profile.jpeg')">
+                            <div class="memory-image">
+                                <img src="static/profile.jpeg" alt="Memory">
+                            </div>
+                            <div class="memory-text">
+                                Tap to view memories
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image Popup -->
+                <div id="image-popup" class="image-popup" onclick="closeImagePopup()">
+                    <img id="popup-image" src="" alt="Memory">
+                </div>
+                
                 <!-- Dynamic frames will be loaded here -->
             </div>
         </div>

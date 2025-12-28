@@ -416,6 +416,34 @@ function switchToMake() {
     }, 300);
 }
 
+function toggleCollapsible(button) {
+    const content = button.nextElementSibling;
+    const isActive = button.classList.contains('active');
+    
+    if (isActive) {
+        button.classList.remove('active');
+        content.classList.remove('active');
+    } else {
+        button.classList.add('active');
+        content.classList.add('active');
+    }
+}
+
+function openImagePopup(imageSrc) {
+    const popup = document.getElementById('image-popup');
+    const popupImage = document.getElementById('popup-image');
+    
+    popupImage.src = imageSrc;
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImagePopup() {
+    const popup = document.getElementById('image-popup');
+    popup.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
 // Load profile when page loads
 document.addEventListener('DOMContentLoaded', function() {
     initCardAnimations();
