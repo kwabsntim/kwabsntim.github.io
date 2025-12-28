@@ -460,12 +460,23 @@ function toggleCollapsible(button) {
 function openImagePopup(imageSrc) {
     const popup = document.getElementById('image-popup');
     const popupImage = document.getElementById('popup-image');
+    const loader = document.getElementById('image-loader');
     
-    // Add cache-busting parameter to force reload
-    const cacheBustSrc = imageSrc + '?t=' + Date.now();
-    popupImage.src = cacheBustSrc;
+    // Show popup with loader
     popup.classList.add('active');
+    loader.style.display = 'flex';
+    popupImage.style.display = 'none';
     document.body.style.overflow = 'hidden';
+    
+    // Load image with cache-busting
+    const cacheBustSrc = imageSrc + '?t=' + Date.now();
+    const img = new Image();
+    img.onload = function() {
+        loader.style.display = 'none';
+        popupImage.src = cacheBustSrc;
+        popupImage.style.display = 'block';
+    };
+    img.src = cacheBustSrc;
 }
 
 function closeImagePopup() {
@@ -476,6 +487,9 @@ function closeImagePopup() {
 
 // Load profile when page loads
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure page starts at top
+    window.scrollTo(0, 0);
+    
     // Preload critical images
     const criticalImages = [
         'static/memories.jpg',
