@@ -684,6 +684,22 @@ body {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
+.activities-grid {
+    display: block;
+}
+
+@media (min-width: 769px) {
+    .activities-grid {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+    }
+    
+    .activities-column {
+        flex: 1;
+    }
+}
+
 .section-separator {
     border: none;
     height: 1px;
