@@ -1251,7 +1251,7 @@ body {
 
 .spotify-link {
     color: #1db954;
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 600;
 }
 
