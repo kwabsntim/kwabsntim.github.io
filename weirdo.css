@@ -228,8 +228,7 @@ body {
 
 /* Header Banner */
 .header-banner {
-    height: 10vh;
-    min-height: 200px;
+    height: 150px;
     background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
     position: relative;
     overflow: hidden;
@@ -495,14 +494,13 @@ body {
 
 .article-link {
     color: #1d9bf0;
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 500;
     transition: color 0.2s;
 }
 
 .article-link:hover {
     color: #1a8cd8;
-    text-decoration: underline;
 }
 
 .memory-card {
