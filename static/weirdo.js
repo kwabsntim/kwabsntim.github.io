@@ -461,7 +461,9 @@ function openImagePopup(imageSrc) {
     const popup = document.getElementById('image-popup');
     const popupImage = document.getElementById('popup-image');
     
-    popupImage.src = imageSrc;
+    // Add cache-busting parameter to force reload
+    const cacheBustSrc = imageSrc + '?t=' + Date.now();
+    popupImage.src = cacheBustSrc;
     popup.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -474,6 +476,19 @@ function closeImagePopup() {
 
 // Load profile when page loads
 document.addEventListener('DOMContentLoaded', function() {
+    // Preload critical images
+    const criticalImages = [
+        'static/memories.jpg',
+        'static/profile.jpeg',
+        'static/spacechristmas.png',
+        'static/lightchristmas.png'
+    ];
+    
+    criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+    
     initCardAnimations();
     fetchBits();
     fetchFrames();
