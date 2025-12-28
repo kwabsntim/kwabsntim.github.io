@@ -368,6 +368,11 @@ body {
     gap: 6px;
 }
 
+[data-theme="light"] .theme-toggle-btn {
+    color: white;
+    border-color: white;
+}
+
 @media (max-width: 480px) {
     .theme-toggle-btn {
         padding: 6px 12px;
