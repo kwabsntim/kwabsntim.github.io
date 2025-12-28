@@ -1276,11 +1276,10 @@ body {
     font-size: 14px;
     color: var(--text-secondary);
     margin: 0 -20px;
-    text-align: center;
+    text-align: justify;
     line-height: 1.5;
     padding: 20px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-    white-space: nowrap;
 }
 
 @media (max-width: 480px) {
@@ -1321,6 +1320,16 @@ body {
     border-color: var(--text-secondary);
 }
 
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-left {
+    flex: 1;
+}
+
 .card-header {
     display: flex;
     align-items: center;
@@ -1345,4 +1354,15 @@ body {
     color: var(--text-secondary);
     margin-left: 26px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.card-right {
+    flex-shrink: 0;
+}
+
+.company-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: cover;
 }
