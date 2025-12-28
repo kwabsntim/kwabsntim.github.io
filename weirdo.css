@@ -146,6 +146,38 @@ body {
 
 @keyframes blink { 50% { opacity: 0; } }
 
+.terminal-hints {
+    text-align: center;
+    margin-top: 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.hint-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.help-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    .terminal-hints {
+        margin-top: 8px;
+    }
+    
+    .hint-text {
+        font-size: 12px;
+    }
+    
+    .help-text {
+        font-size: 11px;
+    }
+}
+
 @media (max-width: 768px) {
     .terminal {
         width: 95vw;
