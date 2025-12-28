@@ -1,7 +1,7 @@
 // Typing animation for terminal welcome message
 (function() {
     const typingLine = document.getElementById('typing-line');
-    const text = 'Welcome to <span style="color:var(--term-accent)">weird-terminal</span>. Type <b>whoami</b> or <b>whyhere</b>.';
+    const text = 'As the  <span style="color:var(--term-accent)">light Dims</span>. Type <b>whoami</b> or <b>whyhere</b>.';
     let index = 0;
     let currentText = '';
     

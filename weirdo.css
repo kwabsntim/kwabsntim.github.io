@@ -1303,6 +1303,7 @@ body {
         margin: 0 -19px;
         padding: 20px 1px;
         font-size: 13px;
+        white-space: nowrap;
     }
 }
 
