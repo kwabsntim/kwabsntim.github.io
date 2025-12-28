@@ -1276,7 +1276,7 @@ body {
     font-size: 14px;
     color: var(--text-secondary);
     margin: 0 -20px;
-    text-align: justify;
+    text-align: center;
     line-height: 1.5;
     padding: 20px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
@@ -1347,6 +1347,12 @@ body {
     font-weight: 600;
     color: var(--text-primary);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@media (max-width: 480px) {
+    .company-title {
+        font-size: 12px;
+    }
 }
 
 .card-role {
