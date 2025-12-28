@@ -425,7 +425,13 @@ body {
 
 /* Year Collapsible */
 .year-collapsible {
-    margin: 20px -20px 30px -20px;
+    margin: 20px 0 30px 0;
+}
+
+@media (max-width: 768px) {
+    .year-collapsible {
+        margin: 20px -20px 30px -20px;
+    }
 }
 
 .collapsible-btn {
