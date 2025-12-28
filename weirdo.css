@@ -1271,3 +1271,22 @@ body {
 .projects-link:hover {
     color: #1d9bf0;
 }
+
+.footer {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 -20px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 20px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .footer {
+        margin: 0 -19px;
+        padding: 20px 1px;
+        font-size: 13px;
+    }
+}
