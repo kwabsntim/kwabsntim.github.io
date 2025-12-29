@@ -611,6 +611,97 @@ body {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
+/* GitHub Profile Card */
+.github-profile-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.github-profile-card:hover {
+    background: var(--bg-tertiary);
+    transform: translateY(-2px);
+}
+
+.github-profile {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.github-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.github-info {
+    flex: 1;
+}
+
+.github-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.github-username {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.github-bio {
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.github-stats {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.github-stat {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.profile-loading {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 20px;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .github-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .github-avatar {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .github-stats {
+        justify-content: center;
+    }
+}
+
 /* Profile Info */
 .profile-info {
     margin-top: 12px;

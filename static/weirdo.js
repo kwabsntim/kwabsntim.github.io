@@ -398,7 +398,7 @@ async function fetchBlogs() {
 }
 
 function displayBlogs(blogs) {
-    const container = document.querySelector('#replies-content .tweets-section');
+    const container = document.querySelector('#highlights-content .tweets-section');
     container.innerHTML = '';
     
     blogs.forEach(blog => {
@@ -565,21 +565,59 @@ function closeImagePopup() {
 
 // Fetch GitHub profile
 async function fetchGitHubProfile() {
+    console.log('Fetching GitHub profile...');
+    const card = document.getElementById('github-profile-card');
+    
     try {
         const response = await fetch('https://weird-backend-1.onrender.com/api/user/kwabsntim');
+        console.log('Response status:', response.status);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
+        console.log('GitHub profile data:', data);
         displayGitHubProfile(data);
     } catch (error) {
         console.error('Error fetching GitHub profile:', error);
-        document.getElementById('github-profile-card').innerHTML = '<div class="profile-loading">Failed to load GitHub profile</div>';
+        if (card) {
+            card.innerHTML = `
+                <div class="github-profile">
+                    <img src="https://github.com/kwabsntim.png" alt="kwabsntim" class="github-avatar">
+                    <div class="github-info">
+                        <div class="github-name">kwabsntim</div>
+                        <div class="github-username">@kwabsntim</div>
+                        <div class="github-bio">Backend Developer & Electrical Engineer</div>
+                        <div class="github-stats">
+                            <div class="github-stat">
+                                <span>📍</span>
+                                <span>Ghana</span>
+                            </div>
+                            <div class="github-stat">
+                                <span>📚</span>
+                                <span>View on GitHub</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            card.onclick = () => window.open('https://github.com/kwabsntim', '_blank');
+        }
     }
 }
 
 function displayGitHubProfile(profile) {
+    console.log('Displaying GitHub profile:', profile);
     const card = document.getElementById('github-profile-card');
+    if (!card) {
+        console.error('GitHub profile card element not found');
+        return;
+    }
+    
     card.innerHTML = `
         <div class="github-profile">
-            <img src="${profile.avatar_url}" alt="${profile.name}" class="github-avatar">
+            <img src="${profile.avatar_url}" alt="${profile.name || profile.login}" class="github-avatar">
             <div class="github-info">
                 <div class="github-name">${profile.name || profile.login}</div>
                 <div class="github-username">@${profile.login}</div>
@@ -587,15 +625,15 @@ function displayGitHubProfile(profile) {
                 <div class="github-stats">
                     <div class="github-stat">
                         <span>📍</span>
-                        <span>${profile.location || 'Unknown'}</span>
+                        <span>${profile.location || 'Ghana'}</span>
                     </div>
                     <div class="github-stat">
                         <span>📚</span>
-                        <span>${profile.public_repos} repos</span>
+                        <span>${profile.public_repos || 'N/A'} repos</span>
                     </div>
                     <div class="github-stat">
                         <span>👥</span>
-                        <span>${profile.followers} followers</span>
+                        <span>${profile.followers || 'N/A'} followers</span>
                     </div>
                 </div>
             </div>
