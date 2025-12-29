@@ -159,58 +159,50 @@ function switchTab(tabName, element) {
 
 // API functions for projects and blogs
 async function fetchProjects() {
-    // Load GitHub profile in projects section
     fetchGitHubProfile();
 }
 
 async function fetchGitHubProfile() {
-    const container = document.querySelector('#replies-content .tweets-section');
+    const card = document.getElementById('github-profile-card');
     
-    // Show loading state
-    container.innerHTML = `
-        <div class="github-profile-card">
-            <div class="github-header">
-                <span class="github-icon">📂</span>
-                <span class="github-title">GitHub Projects</span>
-            </div>
-            <div class="github-username">@kwabsntim</div>
-        </div>
-        <hr class="section-separator">
-        <div class="projects-loader">
-            <div class="spinner"></div>
-            <div>Loading projects...</div>
-        </div>
-    `;
+    if (!card) {
+        return;
+    }
     
     try {
-        const response = await fetch('https://weird-backend-1.onrender.com/api/repos/kwabsntim');
-        const repos = await response.json();
+        const response = await fetch('https://weird-backend-1.onrender.com/api/user/kwabsntim');
         
-        // Clear loader and add projects
-        const loader = container.querySelector('.projects-loader');
-        loader.remove();
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         
-        repos.forEach(repo => {
-            const projectCard = createGitHubProjectCard(repo);
-            container.appendChild(projectCard);
-        });
+        const data = await response.json();
+        displayGitHubProfile(data);
     } catch (error) {
-        console.error('Error fetching GitHub repos:', error);
-        const loader = container.querySelector('.projects-loader');
-        loader.innerHTML = '<div style="color: var(--text-secondary); text-align: center;">Failed to load projects</div>';
+        console.error('Error fetching GitHub profile:', error);
+        card.innerHTML = '<div class="profile-preloader"><div class="spinner"></div></div>';
     }
 }
 
-function createGitHubProjectCard(repo) {
-    const div = document.createElement('div');
-    div.className = 'project-card';
-    div.onclick = () => openProject(repo.html_url);
-    div.innerHTML = `
-        <div class="project-title">${repo.name}</div>
-        <div class="project-description">${repo.description || 'No description available'}</div>
-        <div class="project-link">View Project →</div>
+function displayGitHubProfile(profile) {
+    const card = document.getElementById('github-profile-card');
+    if (!card) {
+        return;
+    }
+    
+    card.innerHTML = `
+        <div class="github-profile">
+            <img src="${profile.avatar_url}" alt="${profile.name || profile.login}" class="github-avatar">
+            <div class="github-info">
+                <div class="github-name">${profile.name || profile.login}</div>
+                <div class="github-username">@${profile.login}</div>
+                <div class="github-bio">${profile.bio || 'Backend Developer & Electrical Engineer'}</div>
+            </div>
+        </div>
     `;
-    return div;
+    
+    card.style.cursor = 'pointer';
+    card.onclick = () => window.open(profile.html_url || 'https://github.com/kwabsntim', '_blank');
 }
 
 async function fetchBlogs() {
