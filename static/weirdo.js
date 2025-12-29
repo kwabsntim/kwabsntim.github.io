@@ -159,14 +159,8 @@ function switchTab(tabName, element) {
 
 // API functions for projects and blogs
 async function fetchProjects() {
-    try {
-        // Replace with your actual API URL when ready
-        const response = await fetch('YOUR_PROJECTS_API_URL');
-        const data = await response.json();
-        displayProjects(data.projects);
-    } catch (error) {
-        console.error('Error fetching projects:', error);
-    }
+    // Load GitHub profile in projects section
+    fetchGitHubProfile();
 }
 
 async function fetchBlogs() {
