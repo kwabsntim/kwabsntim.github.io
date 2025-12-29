@@ -160,6 +160,24 @@ function switchTab(tabName, element) {
 // API functions for projects and blogs
 async function fetchProjects() {
     fetchGitHubProfile();
+    
+    try {
+        const response = await fetch('https://weird-backend-1.onrender.com/api/repos/kwabsntim');
+        const repos = await response.json();
+        
+        const container = document.querySelector('#replies-content .tweets-section');
+        repos.forEach(repo => {
+            const projectCard = createProjectCard({
+                title: repo.name,
+                description: repo.description || 'No description available',
+                url: repo.html_url,
+                language: repo.language || 'Unknown'
+            });
+            container.appendChild(projectCard);
+        });
+    } catch (error) {
+        console.error('Error fetching projects:', error);
+    }
 }
 
 async function fetchGitHubProfile() {
@@ -241,6 +259,7 @@ function createProjectCard(project) {
     div.innerHTML = `
         <div class="project-title">${project.title}</div>
         <div class="project-description">${project.description}</div>
+        <div class="project-language">Language: ${project.language}</div>
         <div class="project-link">View Project →</div>
     `;
     return div;
