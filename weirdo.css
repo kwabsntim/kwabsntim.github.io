@@ -629,8 +629,10 @@ body {
 
 .github-profile {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: 16px;
 }
 
 .github-avatar {
@@ -1662,6 +1664,45 @@ body {
     }
 }
 
+.github-profile-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+}
+
+.github-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.github-icon {
+    font-size: 20px;
+}
+
+.github-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.github-username {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.projects-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 40px;
+    color: var(--text-secondary);
+}
+
 .project-card, .blog-card {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
@@ -1849,6 +1890,7 @@ body {
 
 .github-info {
     flex: 1;
+    text-align: center;
 }
 
 .github-name {
@@ -1893,12 +1935,6 @@ body {
     
     .github-avatar {
         align-self: center;
-    }
-    
-    .github-name,
-    .github-username,
-    .github-bio {
-        text-align: justify;
     }
     
     .github-stats {
