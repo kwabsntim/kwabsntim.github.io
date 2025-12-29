@@ -686,6 +686,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchBlogs();
     fetchProfile();
     fetchGitHubProfile();
+    fetchProjects();
     
     // Scroll button logic
     const scrollBtn = document.getElementById('scroll-btn');
