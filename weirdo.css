@@ -629,10 +629,8 @@ body {
 
 .github-profile {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     gap: 16px;
+    align-items: center;
 }
 
 .github-avatar {
@@ -1648,8 +1646,6 @@ body {
     line-height: 1.5;
     padding: 20px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-    position: sticky;
-    bottom: 0;
     background: var(--bg-primary);
     border-top: 1px solid var(--border-color);
 }
@@ -1890,7 +1886,7 @@ body {
 
 .github-info {
     flex: 1;
-    text-align: center;
+    text-align: justify;
 }
 
 .github-name {
@@ -1935,6 +1931,10 @@ body {
     
     .github-avatar {
         align-self: center;
+    }
+    
+    .github-info {
+        text-align: center;
     }
     
     .github-stats {
