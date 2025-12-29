@@ -559,7 +559,7 @@ function closeImagePopup() {
 
 // Fetch GitHub profile
 async function fetchGitHubProfile() {
-    console.log('Fetching GitHub profile...');
+    console.log('Starting GitHub profile fetch...');
     const card = document.getElementById('github-profile-card');
     
     if (!card) {
@@ -568,8 +568,9 @@ async function fetchGitHubProfile() {
     }
     
     try {
+        console.log('Making API request to:', 'https://weird-backend-1.onrender.com/api/user/kwabsntim');
         const response = await fetch('https://weird-backend-1.onrender.com/api/user/kwabsntim');
-        console.log('Response status:', response.status);
+        console.log('Response received:', response.status, response.statusText);
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -643,7 +644,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initCardAnimations();
     fetchBits();
     fetchFrames();
-    fetchProjects();
     fetchBlogs();
     fetchProfile();
     fetchGitHubProfile();
