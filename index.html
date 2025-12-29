@@ -250,7 +250,21 @@
 
         <div id="replies-content" class="tab-content">
             <div class="tweets-section">
-                <!-- GitHub profile and projects will be loaded here -->
+                <!-- GitHub Profile Card -->
+                <div class="github-profile-card" id="github-profile-card">
+                    <div class="profile-preloader">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                <hr class="section-separator">
+                
+                <!-- Sample Project Card -->
+                <div class="project-card" onclick="openProject('https://github.com/kwabs/sample-project')">
+                    <div class="project-title">Sample Project</div>
+                    <div class="project-description">A full-stack web application built with Python and Flask. Features user authentication, real-time data processing, and responsive design.</div>
+                    <div class="project-link">View Project →</div>
+                </div>
+                <!-- Dynamic projects will be loaded here -->
             </div>
             <div class="footer" style="text-align: center;">
                 Made with ❤️ and fear in The sad GoldCoast +233
