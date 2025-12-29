@@ -568,6 +568,11 @@ async function fetchGitHubProfile() {
     console.log('Fetching GitHub profile...');
     const card = document.getElementById('github-profile-card');
     
+    if (!card) {
+        console.error('GitHub profile card element not found');
+        return;
+    }
+    
     try {
         const response = await fetch('https://weird-backend-1.onrender.com/api/user/kwabsntim');
         console.log('Response status:', response.status);
@@ -577,33 +582,11 @@ async function fetchGitHubProfile() {
         }
         
         const data = await response.json();
-        console.log('GitHub profile data:', data);
+        console.log('GitHub profile data received:', data);
         displayGitHubProfile(data);
     } catch (error) {
         console.error('Error fetching GitHub profile:', error);
-        if (card) {
-            card.innerHTML = `
-                <div class="github-profile">
-                    <img src="https://github.com/kwabsntim.png" alt="kwabsntim" class="github-avatar">
-                    <div class="github-info">
-                        <div class="github-name">kwabsntim</div>
-                        <div class="github-username">@kwabsntim</div>
-                        <div class="github-bio">Backend Developer & Electrical Engineer</div>
-                        <div class="github-stats">
-                            <div class="github-stat">
-                                <span>📍</span>
-                                <span>Ghana</span>
-                            </div>
-                            <div class="github-stat">
-                                <span>📚</span>
-                                <span>View on GitHub</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            card.onclick = () => window.open('https://github.com/kwabsntim', '_blank');
-        }
+        card.innerHTML = '<div class="profile-loading">Failed to load GitHub profile. Check console for details.</div>';
     }
 }
 
@@ -621,7 +604,7 @@ function displayGitHubProfile(profile) {
             <div class="github-info">
                 <div class="github-name">${profile.name || profile.login}</div>
                 <div class="github-username">@${profile.login}</div>
-                <div class="github-bio">${profile.bio || 'No bio available'}</div>
+                <div class="github-bio">${profile.bio || 'Backend Developer & Electrical Engineer'}</div>
                 <div class="github-stats">
                     <div class="github-stat">
                         <span>📍</span>
@@ -639,6 +622,10 @@ function displayGitHubProfile(profile) {
             </div>
         </div>
     `;
+    
+    // Make card clickable
+    card.style.cursor = 'pointer';
+    card.onclick = () => window.open(profile.html_url || 'https://github.com/kwabsntim', '_blank');
 }
 
 // Load profile when page loads
