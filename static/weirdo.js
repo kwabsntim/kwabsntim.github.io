@@ -563,6 +563,46 @@ function closeImagePopup() {
     document.body.style.overflow = 'auto';
 }
 
+// Fetch GitHub profile
+async function fetchGitHubProfile() {
+    try {
+        const response = await fetch('https://weird-backend-1.onrender.com/api/user/kwabsntim');
+        const data = await response.json();
+        displayGitHubProfile(data);
+    } catch (error) {
+        console.error('Error fetching GitHub profile:', error);
+        document.getElementById('github-profile-card').innerHTML = '<div class="profile-loading">Failed to load GitHub profile</div>';
+    }
+}
+
+function displayGitHubProfile(profile) {
+    const card = document.getElementById('github-profile-card');
+    card.innerHTML = `
+        <div class="github-profile">
+            <img src="${profile.avatar_url}" alt="${profile.name}" class="github-avatar">
+            <div class="github-info">
+                <div class="github-name">${profile.name || profile.login}</div>
+                <div class="github-username">@${profile.login}</div>
+                <div class="github-bio">${profile.bio || 'No bio available'}</div>
+                <div class="github-stats">
+                    <div class="github-stat">
+                        <span>📍</span>
+                        <span>${profile.location || 'Unknown'}</span>
+                    </div>
+                    <div class="github-stat">
+                        <span>📚</span>
+                        <span>${profile.public_repos} repos</span>
+                    </div>
+                    <div class="github-stat">
+                        <span>👥</span>
+                        <span>${profile.followers} followers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
 // Load profile when page loads
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure page starts at top
@@ -587,6 +627,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchProjects();
     fetchBlogs();
     fetchProfile();
+    fetchGitHubProfile();
     
     // Scroll button logic
     const scrollBtn = document.getElementById('scroll-btn');

@@ -1555,6 +1555,10 @@ body {
     line-height: 1.5;
     padding: 20px;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    position: sticky;
+    bottom: 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
 }
 
 @media (max-width: 480px) {
@@ -1705,4 +1709,87 @@ body {
     height: 32px;
     border-radius: 4px;
     object-fit: cover;
+}
+
+/* GitHub Profile Card */
+.github-profile-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+}
+
+.profile-loading {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.github-profile {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.github-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.github-info {
+    flex: 1;
+}
+
+.github-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.github-username {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.github-bio {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.github-stats {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.github-stat {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+@media (max-width: 480px) {
+    .github-profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .github-avatar {
+        align-self: center;
+    }
+    
+    .github-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }
