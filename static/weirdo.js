@@ -618,7 +618,7 @@ async function fetchGitHubProfile() {
         displayGitHubProfile(data);
     } catch (error) {
         console.error('Error fetching GitHub profile:', error);
-        card.innerHTML = '<div class="profile-preloader"><div class="spinner"></div></div>';
+        card.innerHTML = '<div class="profile-preloader"><div class="spinner"></div><div class="loading-text">fetching profile info...</div></div>';
     }
 }
 

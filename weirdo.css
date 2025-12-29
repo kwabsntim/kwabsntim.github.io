@@ -1850,9 +1850,17 @@ body {
 
 .profile-preloader {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px;
+    gap: 12px;
+}
+
+.loading-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-align: center;
 }
 
 .profile-preloader .spinner {
@@ -1924,21 +1932,19 @@ body {
 
 @media (max-width: 480px) {
     .github-profile {
-        flex-direction: column;
-        text-align: center;
         gap: 12px;
     }
     
     .github-avatar {
-        align-self: center;
+        align-self: flex-start;
     }
     
     .github-info {
-        text-align: center;
+        text-align: justify;
     }
     
     .github-stats {
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
     }
 }
