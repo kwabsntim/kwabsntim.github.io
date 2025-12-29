@@ -559,37 +559,30 @@ function closeImagePopup() {
 
 // Fetch GitHub profile
 async function fetchGitHubProfile() {
-    console.log('Starting GitHub profile fetch...');
     const card = document.getElementById('github-profile-card');
     
     if (!card) {
-        console.error('GitHub profile card element not found');
         return;
     }
     
     try {
-        console.log('Making API request to:', 'https://weird-backend-1.onrender.com/api/user/kwabsntim');
         const response = await fetch('https://weird-backend-1.onrender.com/api/user/kwabsntim');
-        console.log('Response received:', response.status, response.statusText);
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
         const data = await response.json();
-        console.log('GitHub profile data received:', data);
         displayGitHubProfile(data);
     } catch (error) {
         console.error('Error fetching GitHub profile:', error);
-        card.innerHTML = '<div class="profile-loading">Failed to load GitHub profile. Check console for details.</div>';
+        card.innerHTML = '<div class="profile-preloader"><div class="spinner"></div></div>';
     }
 }
 
 function displayGitHubProfile(profile) {
-    console.log('Displaying GitHub profile:', profile);
     const card = document.getElementById('github-profile-card');
     if (!card) {
-        console.error('GitHub profile card element not found');
         return;
     }
     
@@ -600,25 +593,10 @@ function displayGitHubProfile(profile) {
                 <div class="github-name">${profile.name || profile.login}</div>
                 <div class="github-username">@${profile.login}</div>
                 <div class="github-bio">${profile.bio || 'Backend Developer & Electrical Engineer'}</div>
-                <div class="github-stats">
-                    <div class="github-stat">
-                        <span>📍</span>
-                        <span>${profile.location || 'Ghana'}</span>
-                    </div>
-                    <div class="github-stat">
-                        <span>📚</span>
-                        <span>${profile.public_repos || 'N/A'} repos</span>
-                    </div>
-                    <div class="github-stat">
-                        <span>👥</span>
-                        <span>${profile.followers || 'N/A'} followers</span>
-                    </div>
-                </div>
             </div>
         </div>
     `;
     
-    // Make card clickable
     card.style.cursor = 'pointer';
     card.onclick = () => window.open(profile.html_url || 'https://github.com/kwabsntim', '_blank');
 }

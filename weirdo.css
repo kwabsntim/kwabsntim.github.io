@@ -1811,6 +1811,22 @@ body {
     margin: 16px 0;
 }
 
+.profile-preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.profile-preloader .spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid var(--text-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
 .profile-loading {
     text-align: center;
     color: var(--text-secondary);
@@ -1877,6 +1893,12 @@ body {
     
     .github-avatar {
         align-self: center;
+    }
+    
+    .github-name,
+    .github-username,
+    .github-bio {
+        text-align: justify;
     }
     
     .github-stats {
