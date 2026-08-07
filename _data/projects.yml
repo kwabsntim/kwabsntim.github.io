@@ -1,0 +1,28 @@
+- name: Randoms
+  url: https://github.com/yourusername/localdrop
+  year: 2026
+  description: >
+   human memories are the hardest to keep and they slip through time anytime we forget.Randoms is a photo sharing app that allow you
+   to get pictures that were taken by your favourite people at your occasions.
+  tags:
+    - flask
+    - Css
+    - html
+    - Photo sharing
+- name: Open contribution ghana
+  url: https://github.com/yourusername/localdrop
+  year: 2025
+  description: >
+   A central hub for Ghanaian developers to showcase their open-source projects and find local collaborators. 
+  tags:
+    - OPEN SOURCE
+    - Golang
+- name: Localdrop
+  url: https://github.com/yourusername/localdrop
+  year: 2026
+  description: >
+   LocalDrop is a simple local network transfer tool for sharing files across from your phone to a desktop
+  tags:
+    - python
+    - networking
+    - client server

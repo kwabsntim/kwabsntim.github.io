@@ -1,0 +1,424 @@
+  /* ============================================================
+     BASE COLORS
+     ============================================================ */
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #555;
+      --border: #eaeaea;
+    }
+
+  /* Reset & Base Fonts */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inconsolata', monospace;
+      color: var(--text);
+      background-color: var(--bg);
+      text-align: justify;
+    }
+
+    /* Site Header */
+    .site-header {
+      width: 100%;
+      padding: 20px 40px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-family: 'Inconsolata', monospace;
+      font-weight: bold;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid orange;
+      padding: 12px 0;
+      padding-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-family: 'Inconsolata', monospace;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    /* Social icons group */
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .social-icons a {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--text);
+    }
+
+    /* Main Content Area */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+/* ============================================================
+   HOME PAGE — fixed full-viewport, no scroll
+   ============================================================ */
+body.home-body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Nav — sits at top */
+.home-nav {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg);
+  padding: 16px 20px;
+}
+
+/* Inner nav container — same max-width as content */
+.home-nav-inner {
+  max-width: 640px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Right side: social icons */
+.home-nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.home-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+
+/* Center wrapper — grows to fill space between nav and footer */
+.home-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Home main content */
+.home-content {
+  max-width: 680px;
+  width: 100%;
+}
+
+.home-content h1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.home-content p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+/* Bottom links */
+.home-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.home-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: 'Inconsolata', monospace;
+  transition: color 0.2s ease;
+}
+
+.home-links a:hover {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+/* Footer bar — pinned at bottom */
+.home-footer-bar {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.home-footer-inner {
+  max-width: 680px;
+  width: 100%;
+}
+
+/* Divider */
+.home-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 0 0.75rem;
+}
+
+/* Footer text */
+.home-footer {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding-bottom: 1.25rem;
+}
+
+.home-footer a {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.home-footer a:hover {
+  color: var(--text);
+}
+
+/* ============================================================
+   PAGE LAYOUT — scrollable, mirrors home design
+   ============================================================ */
+body.page-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.page-content {
+  max-width: 680px;
+  width: 100%;
+}
+
+.page-content h4 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Back to home link */
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 3rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 1.0rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-home:hover {
+  color: var(--text);
+}
+
+/* ============================================================
+   PROJECT CARDS
+   ============================================================ */
+.project-card {
+  width: 100%;
+}
+
+.project-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.project-card-link:hover {
+  opacity: 0.7;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.25rem;
+}
+
+.title-group {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.title-primary {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.title-separator {
+  color: var(--text-muted);
+  margin: 0 0.2rem;
+}
+
+.title-secondary {
+  font-family: 'Inconsolata', monospace;
+  color: #666666;
+  font-weight: 400;
+}
+
+.title-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.title-link:hover {
+  color: var(--text-muted);
+}
+
+.project-year {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-family: 'Inconsolata', monospace;
+}
+
+.card-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin-bottom: 1.5rem;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #666666;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background-color: var(--bg);
+}
+
+.project-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE
+   ============================================================ */
+@media (max-width: 600px) {
+  .home-nav {
+    padding: 12px 16px;
+  }
+
+  .home-logo {
+    font-size: 1rem;
+  }
+
+  .social-icons {
+    gap: 10px;
+  }
+
+  .social-icons a svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .home-wrapper {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 24px;
+  }
+
+  .home-content h1 {
+    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .home-content p {
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+
+  .home-links {
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+
+  .home-links a {
+    font-size: 0.88rem;
+  }
+
+  .home-footer {
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,34 @@
+# Site Settings
+title: kwabsntim
+description: A simple Jekyll boilerplate.
+url: ""
+baseurl: ""
+
+# Author
+author:
+  name: princentim
+  email: kwabsntim@gmail.com
+
+# Build
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+
+# Post Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
