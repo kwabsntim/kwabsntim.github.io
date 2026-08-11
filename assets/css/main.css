@@ -293,7 +293,7 @@ body.page-body {
 }
 
 .project-card-link:hover {
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .card-header {
@@ -333,7 +333,7 @@ body.page-body {
 }
 
 .title-link:hover {
-  color: var(--text-muted);
+  color: var(--text);
 }
 
 .project-year {
@@ -374,6 +374,258 @@ body.page-body {
 }
 
 /* ============================================================
+   WRITINGS / POST LIST
+   ============================================================ */
+.page-content h1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list-item {
+  border-top: 1px solid var(--border);
+  padding: 1rem 0;
+}
+
+.post-list-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: opacity 0.2s ease;
+}
+
+.post-list-link:hover {
+  opacity: 1;
+}
+
+.post-list-title {
+  font-family: 'Inconsolata', monospace;
+  font-size: 1rem;
+}
+
+.post-list-date {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.no-posts {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   BLOG POST PAGE
+   ============================================================ */
+body.post-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 64px 20px 48px;
+}
+
+.post-content-area {
+  max-width: 680px;
+  width: 100%;
+}
+
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: 'Inconsolata', monospace;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.post-date {
+  display: block;
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.post-body-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.post-body-content p {
+  margin-bottom: 1.6rem;
+}
+
+.post-body-content h1,
+.post-body-content h2,
+.post-body-content h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-body-content h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.post-body-content h2 {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.post-body-content h3 {
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+
+.post-body-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  cursor: zoom-in;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-overlay img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: zoom-out;
+}
+
+.post-body-content a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-body-content ul,
+.post-body-content ol {
+  margin: 0 0 1.4rem 1.5rem;
+}
+
+.post-body-content li {
+  margin-bottom: 0.4rem;
+}
+
+.post-body-content code {
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.9em;
+  background: #f4f4f4;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+}
+
+.post-body-content pre {
+  background: #f4f4f4;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 1.4rem;
+}
+
+.post-body-content pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Share bar */
+.post-share {
+  margin-top: 3rem;
+}
+
+.post-share-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.post-share-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.post-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-family: 'Inconsolata', monospace;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.post-share-btn:hover {
+  color: var(--text);
+}
+
+/* Back to writings link */
+.back-writings {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 2.5rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-writings:hover {
+  color: var(--text);
+}
+
+/* ============================================================
    MOBILE RESPONSIVE
    ============================================================ */
 @media (max-width: 600px) {
@@ -398,6 +650,10 @@ body.page-body {
 
   .page-wrapper {
     padding: 16px 16px 32px;
+  }
+
+  .page-content {
+    max-width: 100%;
   }
 
   .home-links {
@@ -470,5 +726,36 @@ body.page-body {
 
   .nav-links a {
     font-size: 1.05rem;
+  }
+
+  .post-wrapper {
+    padding: 32px 8px 32px;
+  }
+
+  .post-content-area {
+    max-width: 100%;
+  }
+
+  .post-title {
+    font-size: 1.15rem;
+  }
+
+  .post-body-content {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .post-body-content h1 {
+    font-size: 1.05rem;
+  }
+
+  .post-body-content h2 {
+    font-size: 1rem;
+  }
+
+  .post-body-content h3 {
+    font-size: 0.95rem;
   }
 }

@@ -1,21 +1,22 @@
 ---
-layout: default
+layout: page
 title: Blog
 permalink: /blog/
 ---
 
-#### Blog
+<h1>writings</h1>
 
 {% if site.posts.size > 0 %}
   <ul class="post-list">
     {% for post in site.posts %}
-      <li>
-        <p class="post-date">{{ post.date | date: "%b %d, %Y" }}</p>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+      <li class="post-list-item">
+        <a href="{{ post.url | relative_url }}" class="post-list-link">
+          <span class="post-list-title">{{ post.title }}</span>
+          <span class="post-list-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        </a>
       </li>
     {% endfor %}
   </ul>
 {% else %}
-  <p>No posts yet.</p>
+  <p class="no-posts">No posts yet.</p>
 {% endif %}
