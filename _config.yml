@@ -1,8 +1,8 @@
 # Site Settings
 title: kwabsntim
 description: A simple Jekyll boilerplate.
-url: ""
-baseurl: ""
+url: "https://kwabsntim.github.io"
+baseurl: "/kwabssntim"
 
 # Author
 author:
