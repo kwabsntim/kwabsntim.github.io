@@ -384,13 +384,16 @@ body.page-body {
   }
 
   .home-wrapper {
-    padding: 16px;
+    padding: 24px 16px 16px;
     align-items: flex-start;
-    padding-top: 24px;
   }
 
   .home-nav {
     padding: 20px 16px 12px;
+  }
+
+  .home-footer-bar {
+    padding: 0 16px;
   }
 
   .page-wrapper {
