@@ -105,7 +105,7 @@
    ============================================================ */
 body.home-body {
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-direction: column;
 }
@@ -426,5 +426,15 @@ body.page-body {
 
   .home-footer {
     font-size: 0.75rem;
+  }
+
+  .page-content,
+  .page-content p,
+  .page-content h1,
+  .page-content h2,
+  .page-content h3,
+  .page-content h4,
+  .card-description {
+    text-align: justify;
   }
 }
