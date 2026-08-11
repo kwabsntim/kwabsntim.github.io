@@ -63,7 +63,7 @@
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       font-family: 'Inconsolata', monospace;
       transition: color 0.2s ease;
     }
@@ -308,7 +308,7 @@ body.page-body {
 }
 
 .title-primary {
-  font-family: Georgia, serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   color: var(--text);
 }
@@ -319,7 +319,7 @@ body.page-body {
 }
 
 .title-secondary {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Outfit', sans-serif;
   color: #666666;
   font-weight: 400;
 }
