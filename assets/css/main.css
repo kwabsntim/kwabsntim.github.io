@@ -679,12 +679,12 @@ body.post-body {
   }
 
   .home-content h1 {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     margin-bottom: 1.25rem;
   }
 
   .home-content p {
-    font-size: 1.0rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
   }
 
@@ -737,25 +737,25 @@ body.post-body {
   }
 
   .post-title {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
   }
 
   .post-body-content {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.75;
     word-break: break-word;
     overflow-wrap: break-word;
   }
 
   .post-body-content h1 {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
   }
 
   .post-body-content h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .post-body-content h3 {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 }
