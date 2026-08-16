@@ -18,5 +18,5 @@ My tech journey includes Python, HTML, CSS, Bootstrap, Django, Flask, and recent
 <nav class="home-links">
   <a href="{{ '/projects/' | relative_url }}">I built↗</a>
   <a href="{{ '/blog/' | relative_url }}">writings↗</a>
-  <a href="{{ '/blog/' | relative_url }}">Highlights↗</a>
+  <a href="{{ '/highlights/' | relative_url }}">Highlights↗</a>
 </nav>
