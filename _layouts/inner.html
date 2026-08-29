@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+  <style>
+    /* ── Accent color per page ── */
+    :root {
+      --accent: {{ page.accent | default: "#22c55e" }};
+    }
+
+    /* ── Base ── */
+    body.inner-body {
+      background-color: #ffffff;
+      color: #1a1a1a;
+      font-family: 'Inconsolata', 'Courier New', monospace;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
+
+    .inner-container {
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* ── Header ── */
+    .inner-header {
+      margin-bottom: 40px;
+    }
+
+    .inner-header .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .inner-header .site-title {
+      font-size: 2.2rem;
+      font-weight: normal;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      letter-spacing: 0;
+      text-decoration: none;
+    }
+
+    .inner-header .site-subtitle {
+      font-size: 1.1rem;
+      color: #555555;
+    }
+
+    /* ── Nav ── */
+    .inner-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 50px;
+      padding: 12px 0;
+      position: sticky;
+      top: 16px;
+      background-color: #ffffff;
+      z-index: 100;
+      border: none;
+    }
+
+    .inner-nav-link {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 1rem;
+      font-family: 'Inconsolata', monospace;
+      padding-bottom: 4px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .inner-nav-link.active {
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* ── Main content ── */
+    .inner-content {
+      text-align: left;
+    }
+
+    .inner-content p {
+      font-size: 1rem;
+      color: #333333;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .inner-content a {
+      color: #1a1a1a;
+      text-decoration: underline;
+    }
+
+    .inner-content a:hover {
+      color: var(--accent);
+    }
+
+    /* ── Blog archive ── */
+    .archive-container {
+      font-family: 'Inconsolata', 'Courier New', monospace;
+      color: #1a1a1a;
+    }
+
+    .year-group {
+      margin-bottom: 3rem;
+    }
+
+    .year-heading {
+      font-size: 2rem;
+      font-weight: normal;
+      color: #111111;
+      margin-bottom: 2rem;
+    }
+
+    .posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .post-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .post-card-title {
+      font-size: 1.15rem;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .post-card-title a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .post-card-title a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .post-card-date {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #888888;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .post-excerpt {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555555;
+      margin-bottom: 0.6rem;
+      text-align: left;
+    }
+
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .post-tag {
+      font-size: 0.8rem;
+      color: #aaaaaa;
+      text-decoration: none;
+    }
+
+    .no-posts {
+      color: #aaaaaa;
+    }
+
+    /* ── Blog post list (simple list fallback) ── */
+    body.inner-body .post-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    body.inner-body .post-list-item {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    body.inner-body .post-list-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      text-decoration: none !important;
+      color: #1a1a1a;
+      padding: 12px 0;
+      border-bottom: 1px solid #eaeaea;
+      gap: 16px;
+    }
+
+    body.inner-body .post-list-link:hover .post-list-title {
+      color: var(--accent);
+    }
+
+    body.inner-body .post-list-title {
+      font-size: 1rem;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    body.inner-body .post-list-date {
+      font-size: 0.85rem;
+      color: #aaaaaa;
+      white-space: nowrap;
+      text-decoration: none !important;
+    }
+
+    body.inner-body .no-posts {
+      color: #aaaaaa;
+    }
+
+    /* ── Project cards ── */
+    body.inner-body .project-card-link {
+      text-decoration: none !important;
+      color: inherit;
+      display: block;
+      cursor: pointer;
+      border: none;
+    }
+
+    body.inner-body .project-card {
+      padding: 16px 0;
+    }
+
+    body.inner-body .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    body.inner-body .title-primary {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      font-family: 'Inconsolata', monospace;
+    }
+
+    body.inner-body .project-card-link:hover .title-primary {
+      color: var(--accent);
+    }
+
+    body.inner-body .project-year {
+      font-size: 0.85rem;
+      color: #aaaaaa;
+      text-decoration: none !important;
+    }
+
+    body.inner-body .card-description {
+      font-size: 0.95rem;
+      color: #555555;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    /* ── Tags: hashtag style, no box, no underline ── */
+    body.inner-body .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    body.inner-body .tag {
+      font-size: 0.8rem;
+      color: #aaaaaa;
+      text-decoration: none !important;
+      background: none !important;
+      padding: 0 !important;
+      border: none !important;
+      border-radius: 0 !important;
+      text-transform: lowercase;
+      letter-spacing: 0;
+    }
+
+    body.inner-body .tag::before {
+      content: "#";
+    }
+
+    body.inner-body .project-divider {
+      border: none;
+      border-top: 1px solid #eaeaea;
+      margin: 0;
+    }
+
+    /* ── Socials page ── */
+    .socials-container {
+      font-family: 'Inconsolata', 'Courier New', monospace;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+
+    .socials-container p {
+      font-size: 1rem;
+      color: #333333;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .socials-container a {
+      color: #111111;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+    }
+
+    .socials-container a:hover {
+      color: var(--accent);
+    }
+
+    .socials-container ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .socials-container li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    /* ── Footer ── */
+    .inner-footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #eaeaea;
+    }
+
+    .inner-footer p {
+      font-size: 0.85rem;
+      color: #aaaaaa;
+    }
+
+    .inner-footer a {
+      color: #aaaaaa;
+      text-decoration: underline;
+    }
+
+    .inner-footer a:hover {
+      color: var(--accent);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .inner-container {
+        padding: 32px 20px;
+      }
+
+      .inner-header .site-title {
+        font-size: 1.7rem;
+      }
+
+      .inner-nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      body.inner-body .post-list-link {
+        flex-direction: column;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body class="inner-body">
+
+  <div class="inner-container">
+
+    <header class="inner-header">
+      <div class="header-content">
+        <div class="header-text">
+          <a href="{{ '/' | relative_url }}" class="site-title">kwabsntim</a>
+          <p class="site-subtitle">{{ page.subtitle }}</p>
+        </div>
+      </div>
+
+      <nav class="inner-nav">
+        <a href="{{ '/' | relative_url }}"
+           class="inner-nav-link {% if page.url == '/' %}active{% endif %}"
+           data-accent="#ef4444">home</a>
+        <a href="{{ '/projects/' | relative_url }}"
+           class="inner-nav-link {% if page.url contains '/projects' %}active{% endif %}"
+           data-accent="#eab308">projects</a>
+        <a href="{{ '/blog/' | relative_url }}"
+           class="inner-nav-link {% if page.url contains '/blog' %}active{% endif %}"
+           data-accent="#22c55e">blog</a>
+        <a href="{{ '/highlights/' | relative_url }}"
+           class="inner-nav-link {% if page.url contains '/highlights' %}active{% endif %}"
+           data-accent="#2563eb">highlights</a>
+        <a href="{{ '/socials/' | relative_url }}"
+           class="inner-nav-link {% if page.url contains '/socials' %}active{% endif %}"
+           data-accent="#1a1a1a">socials</a>
+      </nav>
+    </header>
+
+    <main class="inner-content">
+      {{ content }}
+    </main>
+
+    <div class="inner-footer">
+      <p>&copy; {{ "now" | date: "%Y" }} kwabsntim &middot; made with <a href="https://jekyllrb.com" target="_blank" rel="noopener noreferrer">jekyll</a></p>
+    </div>
+
+  </div>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script>
+    // Each nav link hovers with its own page's accent color
+    document.querySelectorAll('.inner-nav-link').forEach(function(link) {
+      var accent = link.getAttribute('data-accent');
+      link.addEventListener('mouseenter', function() {
+        this.style.color = accent;
+      });
+      link.addEventListener('mouseleave', function() {
+        // restore to black unless it's the active link
+        this.style.color = this.classList.contains('active') ? '' : '#1a1a1a';
+      });
+    });
+  </script>
+</body>
+</html>

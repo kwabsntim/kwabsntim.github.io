@@ -1,0 +1,16 @@
+<header class="profile-header">
+  <div class="header-content">
+    <div class="header-text">
+      <h1 class="site-title">kwabsntim</h1>
+      <p class="site-subtitle">pragmatic computerist</p>
+    </div>
+  </div>
+
+  <nav class="nav-bar">
+    <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}" data-accent="#ef4444">home</a>
+    <a href="{{ '/projects/' | relative_url }}" class="nav-link {% if page.url contains '/projects' %}active{% endif %}" data-accent="#eab308">projects</a>
+    <a href="{{ '/blog/' | relative_url }}" class="nav-link {% if page.url contains '/blog' %}active{% endif %}" data-accent="#22c55e">blog</a>
+    <a href="{{ '/highlights/' | relative_url }}" class="nav-link {% if page.url contains '/highlights' %}active{% endif %}" data-accent="#2563eb">highlights</a>
+    <a href="{{ '/socials/' | relative_url }}" class="nav-link {% if page.url contains '/socials' %}active{% endif %}" data-accent="#1a1a1a">socials</a>
+  </nav>
+</header>

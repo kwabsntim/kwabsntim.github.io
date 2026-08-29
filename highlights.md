@@ -1,7 +1,9 @@
 ---
-layout: page
+layout: inner
 title: Highlights
+subtitle: "things worth remembering"
 permalink: /highlights/
+accent: "#2563eb"
 ---
 
-this page comes soon
+<p>coming soon.</p>
