@@ -29,8 +29,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 40px;
+      gap: 4px;
+      margin-bottom: 20px;
     }
 
     .header-text .site-title {
@@ -85,11 +85,16 @@
     }
 
     /* ── Main content ── */
+    .home-content {
+      padding: 0;
+      margin: 0;
+    }
+
     .home-content p {
       font-size: 1rem;
       color: #333333;
       margin-bottom: 1.5rem;
-      text-align: left;
+      text-align: justify;
     }
 
     .home-content a {
@@ -129,6 +134,16 @@
       color: #22c55e;
     }
 
+    /* ── Profile pic ── */
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 2px solid #1a1a1a;
+      flex-shrink: 0;
+      display: block;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 520px) {
       .home-container {
@@ -160,6 +175,11 @@
 
       .home-footer-dark p {
         font-size: 0.95rem;
+      }
+
+      .profile-pic {
+        width: 64px;
+        height: 64px;
       }
     }
   </style>

@@ -83,6 +83,8 @@
 
     /* ── Main content ── */
     .inner-content {
+      padding: 0;
+      margin: 0;
       text-align: left;
     }
 
@@ -90,7 +92,7 @@
       font-size: 1rem;
       color: #333333;
       margin-bottom: 1.5rem;
-      text-align: left;
+      text-align: justify;
     }
 
     .inner-content a {
@@ -168,7 +170,7 @@
       line-height: 1.6;
       color: #555555;
       margin-bottom: 0.6rem;
-      text-align: left;
+      text-align: justify;
     }
 
     .post-tags {
@@ -273,7 +275,7 @@
       font-size: 0.95rem;
       color: #555555;
       margin-bottom: 10px;
-      text-align: left;
+      text-align: justify;
     }
 
     /* ── Tags: hashtag style, no box, no underline ── */
@@ -316,7 +318,7 @@
       font-size: 1rem;
       color: #333333;
       margin-bottom: 1.5rem;
-      text-align: left;
+      text-align: justify;
     }
 
     .socials-container a {
@@ -340,6 +342,16 @@
     .socials-container li {
       margin-bottom: 0.5rem;
       font-size: 1rem;
+    }
+
+    /* ── Profile pic ── */
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 2px solid #1a1a1a;
+      flex-shrink: 0;
+      display: block;
     }
 
     /* ── Footer ── */
@@ -449,6 +461,11 @@
       .inner-footer p {
         font-size: 0.95rem;
       }
+
+      .profile-pic {
+        width: 64px;
+        height: 64px;
+      }
     }
   </style>
 </head>
@@ -462,6 +479,7 @@
           <a href="{{ '/' | relative_url }}" class="site-title">kwabsntim</a>
           <p class="site-subtitle">{{ page.subtitle }}</p>
         </div>
+        <img src="{{ '/assets/profile.jpeg' | relative_url }}" alt="profile" class="profile-pic">
       </div>
 
       <nav class="inner-nav">
