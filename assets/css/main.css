@@ -257,7 +257,7 @@ body.page-body {
 }
 
 .page-content h4 {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 /* Back to home link */
@@ -266,7 +266,7 @@ body.page-body {
   align-items: center;
   gap: 0.4rem;
   margin-top: 3rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-weight: 500;
   font-size: 1.0rem;
   color: var(--text-muted);
@@ -310,7 +310,7 @@ body.page-body {
 }
 
 .title-primary {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-weight: 700;
   color: var(--text);
 }
@@ -321,7 +321,7 @@ body.page-body {
 }
 
 .title-secondary {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   color: #666666;
   font-weight: 400;
 }
