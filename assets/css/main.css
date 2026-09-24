@@ -16,7 +16,7 @@
     }
 
     body {
-      font-family: 'Inconsolata', monospace;
+      font-family: 'Titillium Web', sans-serif;
       color: var(--text);
       background-color: var(--bg);
       text-align: justify;
@@ -38,7 +38,7 @@
 
     .site-title {
       font-size: 1.5rem;
-      font-family: 'Inconsolata', monospace;
+      font-family: 'Titillium Web', sans-serif;
       font-weight: bold;
       color: var(--text);
       text-decoration: none;
@@ -65,7 +65,7 @@
       color: var(--text-muted);
       text-decoration: none;
       font-size: 1.1rem;
-      font-family: 'Inconsolata', monospace;
+      font-family: 'Titillium Web', sans-serif;
       transition: color 0.2s ease;
     }
 
@@ -190,7 +190,7 @@ body.home-body {
   color: var(--text);
   text-decoration: none;
   font-size: 0.95rem;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
   transition: color 0.2s ease;
 }
 
@@ -340,7 +340,7 @@ body.page-body {
 .project-year {
   font-size: 0.95rem;
   color: var(--text-muted);
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .card-description {
@@ -357,7 +357,7 @@ body.page-body {
 }
 
 .tag {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -413,12 +413,12 @@ body.page-body {
 }
 
 .post-list-title {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 1rem;
 }
 
 .post-list-date {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.85rem;
   color: var(--text-muted);
   white-space: nowrap;
@@ -457,7 +457,7 @@ body.post-body {
 .post-title {
   font-size: 1.4rem;
   font-weight: bold;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
   color: var(--text);
   margin-bottom: 0.5rem;
   line-height: 1.4;
@@ -465,7 +465,7 @@ body.post-body {
 
 .post-date {
   display: block;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.85rem;
   color: var(--text-muted);
 }
@@ -553,7 +553,7 @@ body.post-body {
 }
 
 .post-body-content code {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.9em;
   background: #f4f4f4;
   padding: 0.1em 0.4em;
@@ -599,7 +599,7 @@ body.post-body {
   padding: 0;
   cursor: pointer;
   color: var(--text-muted);
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 0.85rem;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -615,7 +615,7 @@ body.post-body {
   align-items: center;
   gap: 0.4rem;
   margin-top: 2.5rem;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 1rem;
   color: var(--text-muted);
   text-decoration: none;
